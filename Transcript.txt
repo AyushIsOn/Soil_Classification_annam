@@ -1,0 +1,32 @@
+Team Leader Name: Ayush Gupta
+Total Head Count : 1
+
+Contact Info: 8318010062
+              ayushgupta.2406@gmail.com 
+
+
+Challenge 1: Multi-Class Soil Type Classification
+
+Kaggle Rank: 120, F1 Score: 0.9285
+
+Approach: Employed a PyTorch-based ResNet50 model, fine-tuned with a custom classifier head.
+
+Data Strategy: Utilized extensive data augmentation (flips, rotations, color jitter, random crops) and normalized images.
+
+Training: Trained for 20 epochs using AdamW optimizer, CrossEntropyLoss, and CosineAnnealingLR scheduler. Focused on maximizing the minimum F1 score across classes during validation.
+
+Observation: The ResNet50, with robust augmentation, effectively classified the four soil types, achieving a strong F1 score.
+
+
+Challenge 2: Soil Binary Classification (Soil vs. Non-Soil)
+
+Kaggle (Aayush ENV310): Rank 119, F1 Score: 0.5241
+
+Approach: Leveraged a TensorFlow/Keras EfficientNetB0 model with a custom binary classification head.
+
+Data Strategy: Addressed the single-class (all 'soil') training data by artificially generating "non-soil" examples (25% of samples relabeled as '0'). Applied standard image augmentations.
+
+Training: Used AdamW, binary cross-entropy, and callbacks (EarlyStopping, ReduceLROnPlateau). Optimized the prediction threshold for the F1 score.
+
+Observation: The F1 score reflects the difficulty of training a binary classifier with synthetically generated negative samples. The model predominantly predicted 'soil', indicating the challenge of distinguishing true "non-soil" features from the provided data.
+
